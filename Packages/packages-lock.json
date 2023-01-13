@@ -132,7 +132,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:C:/Users/bilai/Downloads/PicoXR_Platform_SDK-1.2.5_B81 (1)",
+      "version": "file:../deps/PicoXR_Platform_SDK-1.2.5_B81",
       "depth": 0,
       "source": "local",
       "dependencies": {
