@@ -26,8 +26,7 @@ public class s3DBButton_sender : MonoBehaviour {
 //Just for test
 	void OnMouseOver(){
 		if (Input.GetMouseButtonDown (0)) {
-			Debug.Log("clicked");
-			SendToObjects ();
+			SendToObjects();
 		}
 	}
 
