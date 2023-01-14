@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +6,7 @@ public class BuzzerManager : MonoBehaviour
     public Text timer_text;
     public Text score_text;
     public Buzzer[] buzzers;
-    private int game_duration = 10;
+    private int game_duration = 30;
     private int elapsed_time = 0;
     private int lighted_buzzer = -1;
     private int score = 0;
@@ -18,7 +16,7 @@ public class BuzzerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer_text.text = game_duration + " s";
+        timer_text.text = game_duration + " sec";
         if (buzzers.Length == 0)
             Debug.LogWarning("Aucun buzzer n'est connecté.");
         else
@@ -35,16 +33,24 @@ public class BuzzerManager : MonoBehaviour
     {
         if (Time.time > elapsed_time)
         {
-            if (game_duration - elapsed_time == 0)
+            if (game_is_running)
             {
-                game_is_running = false;
+                int time_left = game_duration - elapsed_time;
+                if (time_left == 0)
+                {
+                    game_is_running = false;
+                    timer_text.text = "partie terminée".ToUpper();
+                }
+                else
+                {
+                    if (time_left <= 10)
+                        timer_text.color = Color.red;
+                    else if (time_left <= 20)
+                        timer_text.color = new Color(1, 0.5f, 0);
+                    elapsed_time += 1;
+                    timer_text.text = game_duration - elapsed_time + " sec";
+                }
             }
-            else
-            {
-                elapsed_time += 1;
-                timer_text.text = game_duration - elapsed_time + " s";
-            }
-            //changeBuzzer();
         }
     }
     public void buttonClicked(int id)
