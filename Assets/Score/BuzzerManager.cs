@@ -6,6 +6,10 @@ public class BuzzerManager : MonoBehaviour
     public Text timer_text;
     public Text score_text;
     public Buzzer[] buzzers;
+    public AudioSource wrongBuzzerSound;
+    public AudioSource goodBuzzerSound;
+    public AudioSource tickingSound;
+
     private const int game_duration = 30;
     private int elapsed_time = 0;
     private float game_started_at = 0;
@@ -29,6 +33,7 @@ public class BuzzerManager : MonoBehaviour
             elapsed_time += 1;
             if (game_is_running)
             {
+                tickingSound.Play();
                 int time_left = game_duration - elapsed_time;
                 if (time_left == 0)
                 {
@@ -55,9 +60,14 @@ public class BuzzerManager : MonoBehaviour
         Debug.Log("BuzzerManager : received click from " + id);
         if (game_is_running && id == lighted_buzzer)
         {
+            goodBuzzerSound.Play();
             score += 1;
             score_text.text = score.ToString() + " pts";
             ChangeBuzzer();
+        }
+        else
+        {
+            wrongBuzzerSound.Play();
         }
     }
 
