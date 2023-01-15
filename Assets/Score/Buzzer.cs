@@ -7,7 +7,7 @@ public class Buzzer : MonoBehaviour
     private BuzzerManager bm;
     private int id;
 
-    public void init(BuzzerManager bm, int id)
+    public void Init(BuzzerManager bm, int id)
     {
         this.bm = bm;
         this.id = id;
@@ -18,7 +18,7 @@ public class Buzzer : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (bm)
-                bm.buttonClicked(id);
+                bm.BuzzerClick(id);
         }
     }
 }
