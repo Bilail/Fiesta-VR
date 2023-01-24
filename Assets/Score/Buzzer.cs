@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Buzzer : MonoBehaviour
 {
@@ -17,8 +18,12 @@ public class Buzzer : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (bm)
-                bm.BuzzerClick(id);
+            BuzzerClick(null);
         }
+    }
+    public void BuzzerClick(XRBaseInteractor iter)
+    {
+        if (bm)
+            bm.BuzzerClick(id);
     }
 }
