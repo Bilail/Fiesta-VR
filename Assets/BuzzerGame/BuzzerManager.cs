@@ -16,6 +16,7 @@ public class BuzzerManager : MonoBehaviour
     private int lighted_buzzer = -1;
     private int score = 0;
     private bool game_is_running = false;
+    private bool buzzersAreLighted = false;
     private System.Random rand = new System.Random();
 
     // Start is called before the first frame update
@@ -23,8 +24,12 @@ public class BuzzerManager : MonoBehaviour
     {
         score_text.text = score.ToString() + " pts";
         timer_text.text = game_duration + " sec";
+        buzzers = FindObjectsOfType<Buzzer>();
+        for (int i = 0; i < buzzers.Length; i++)
+            buzzers[i].Init(this, i);
+        InvokeRepeating("ChangeBuzzerColor", 1f, 1f);
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +44,8 @@ public class BuzzerManager : MonoBehaviour
                 {
                     game_is_running = false;
                     buzzers[lighted_buzzer].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
-                    timer_text.text = "partie terminée".ToUpper();
+                    timer_text.text = "partie terminÃ©e".ToUpper();
+                    InvokeRepeating("ChangeBuzzerColor", 1f, 1f);
                 }
                 else
                 {
@@ -57,7 +63,6 @@ public class BuzzerManager : MonoBehaviour
     }
     public void BuzzerClick(int id)
     {
-        Debug.Log("BuzzerManager : received click from " + id);
         if (game_is_running && id == lighted_buzzer)
         {
             goodBuzzerSound.Play();
@@ -76,9 +81,14 @@ public class BuzzerManager : MonoBehaviour
         game_is_running = false;
         if (buzzers.Length == 0)
         {
-            Debug.LogWarning("Aucun buzzer n'est connecté.");
+            Debug.LogWarning("Aucun buzzer n'est connectÃ©.");
             return;
         }
+        CancelInvoke("ChangeBuzzerColor");
+        if (buzzersAreLighted)
+            for (int i = 0; i < buzzers.Length; i++)
+                buzzers[i].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+        buzzersAreLighted = false;
         game_started_at = Time.time + 1;
         elapsed_time = 0;
         score = 0;
@@ -86,8 +96,6 @@ public class BuzzerManager : MonoBehaviour
         timer_text.text = game_duration + " sec";
         if (lighted_buzzer != -1)
             buzzers[lighted_buzzer].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
-        for (int i = 0; i < buzzers.Length; i++)
-            buzzers[i].Init(this, i);
         lighted_buzzer = rand.Next(0, buzzers.Length);
         buzzers[lighted_buzzer].GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         game_is_running = true;
@@ -104,5 +112,16 @@ public class BuzzerManager : MonoBehaviour
             lighted_buzzer = new_buzzer;
             buzzers[lighted_buzzer].GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         }
+    }
+
+    void ChangeBuzzerColor()
+    {
+        for (int i = 0; i < buzzers.Length; i++)
+            if (buzzersAreLighted)
+                buzzers[i].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+            else
+                buzzers[i].GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        buzzersAreLighted = !buzzersAreLighted;
+        //CancelInvoke("ChangeBuzzerColor");
     }
 }
