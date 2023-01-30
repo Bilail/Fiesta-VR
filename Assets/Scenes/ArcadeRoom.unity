@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &266792
 Light:
   m_ObjectHideFlags: 0
@@ -4692,7 +4692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1228174534
 Transform:
   m_ObjectHideFlags: 0
@@ -5275,7 +5275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1334005296
 Transform:
   m_ObjectHideFlags: 0
@@ -7081,7 +7081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1715955945
 Transform:
   m_ObjectHideFlags: 0
@@ -10065,6 +10065,10 @@ PrefabInstance:
     - target: {fileID: 782709723865424878, guid: 328934b561f64a144a2080a0feb04902, type: 3}
       propertyPath: m_Name
       value: ClawMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 782709723865424878, guid: 328934b561f64a144a2080a0feb04902, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361709301654934013, guid: 328934b561f64a144a2080a0feb04902, type: 3}
       propertyPath: m_RootOrder
