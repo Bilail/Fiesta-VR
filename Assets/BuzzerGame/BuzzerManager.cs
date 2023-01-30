@@ -45,7 +45,7 @@ public class BuzzerManager : MonoBehaviour
                 {
                     game_is_running = false;
                     gameOverSound.Play();
-                    buzzers[lighted_buzzer].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+                    SetLight(buzzers[lighted_buzzer], false);
                     timer_text.text = "partie terminée".ToUpper();
                     InvokeRepeating("ChangeBuzzerColor", 1f, 1f);
                 }
@@ -89,7 +89,7 @@ public class BuzzerManager : MonoBehaviour
         CancelInvoke("ChangeBuzzerColor");
         if (buzzersAreLighted)
             for (int i = 0; i < buzzers.Length; i++)
-                buzzers[i].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+                SetLight(buzzers[i], false);
         buzzersAreLighted = false;
         game_started_at = Time.time + 1;
         elapsed_time = 0;
@@ -97,9 +97,9 @@ public class BuzzerManager : MonoBehaviour
         score_text.text = score.ToString() + " pts";
         timer_text.text = game_duration + " sec";
         if (lighted_buzzer != -1)
-            buzzers[lighted_buzzer].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+            SetLight(buzzers[lighted_buzzer], false);
         lighted_buzzer = rand.Next(0, buzzers.Length);
-        buzzers[lighted_buzzer].GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        SetLight(buzzers[lighted_buzzer], true);
         game_is_running = true;
     }
 
@@ -107,23 +107,33 @@ public class BuzzerManager : MonoBehaviour
     {
         if (buzzers.Length > 0)
         {
-            buzzers[lighted_buzzer].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+            SetLight(buzzers[lighted_buzzer], false);
             int new_buzzer = rand.Next(0, buzzers.Length);
             while (lighted_buzzer == new_buzzer && buzzers.Length > 1)
                 new_buzzer = rand.Next(0, buzzers.Length);
             lighted_buzzer = new_buzzer;
-            buzzers[lighted_buzzer].GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            SetLight(buzzers[lighted_buzzer], true);
         }
     }
 
     void ChangeBuzzerColor()
     {
         for (int i = 0; i < buzzers.Length; i++)
-            if (buzzersAreLighted)
-                buzzers[i].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
-            else
-                buzzers[i].GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            SetLight(buzzers[i], !buzzersAreLighted);
         buzzersAreLighted = !buzzersAreLighted;
-        //CancelInvoke("ChangeBuzzerColor");
+    }
+
+    void SetLight(Component comp, bool state)
+    {
+        if (state)
+        {
+            comp.GetComponent<Light>().enabled = true;
+            comp.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        }
+        else
+        {
+            comp.GetComponent<Light>().enabled = false;
+            comp.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+        }
     }
 }

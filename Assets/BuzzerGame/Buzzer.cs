@@ -8,6 +8,12 @@ public class Buzzer : MonoBehaviour
     private BuzzerManager bm;
     private int id;
 
+    void Start()
+    {
+        gameObject.GetComponent<Light>().enabled = false;
+        gameObject.GetComponent<Light>().color = gameObject.GetComponent<Renderer>().material.GetColor("_EmissionColor");
+    }
+
     public void Init(BuzzerManager bm, int id)
     {
         this.bm = bm;
