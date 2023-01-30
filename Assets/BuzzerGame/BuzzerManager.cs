@@ -9,6 +9,7 @@ public class BuzzerManager : MonoBehaviour
     public AudioSource wrongBuzzerSound;
     public AudioSource goodBuzzerSound;
     public AudioSource tickingSound;
+    public AudioSource gameOverSound;
 
     private const int game_duration = 30;
     private int elapsed_time = 0;
@@ -43,6 +44,7 @@ public class BuzzerManager : MonoBehaviour
                 if (time_left == 0)
                 {
                     game_is_running = false;
+                    gameOverSound.Play();
                     buzzers[lighted_buzzer].GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
                     timer_text.text = "partie terminée".ToUpper();
                     InvokeRepeating("ChangeBuzzerColor", 1f, 1f);
