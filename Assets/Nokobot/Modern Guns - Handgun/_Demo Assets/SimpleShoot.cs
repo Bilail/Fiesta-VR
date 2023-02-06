@@ -9,6 +9,7 @@ public class SimpleShoot : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject casingPrefab;
     public GameObject muzzleFlashPrefab;
+    public float damage = 10f;
 
     [Header("Location Refrences")]
     [SerializeField] private Animator gunAnimator;
@@ -60,6 +61,28 @@ public class SimpleShoot : MonoBehaviour
 
         // Create a bullet and add force on it in direction of the barrel
         Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+
+        RaycastHit hit;
+        if (Physics.Raycast(barrelLocation.position, barrelLocation.forward, out hit))
+        {
+            Debug.Log(hit.transform.name);
+            /*if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * shotPower);
+            }*/
+            //supprimer l'objet touché
+            if (hit.transform.gameObject.tag == "Target")
+            {
+                Destroy(hit.transform.gameObject);
+            }
+            /*Target target = hit.transform.GetComponent<Target>();
+            if(target != null)
+            {
+                target.TakeDamage(damage);
+            }*/
+        }
+        
+        
 
     }
 
