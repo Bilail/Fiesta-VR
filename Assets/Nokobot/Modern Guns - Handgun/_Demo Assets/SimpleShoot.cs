@@ -31,7 +31,7 @@ public class SimpleShoot : MonoBehaviour
             gunAnimator = GetComponentInChildren<Animator>();
     }
 
-    void Update()
+    public void Update()
     {
         //If you want a different input, change it here
         if (Input.GetButtonDown("Fire1"))
@@ -43,7 +43,7 @@ public class SimpleShoot : MonoBehaviour
 
 
     //This function creates the bullet behavior
-    void Shoot()
+    public void Shoot()
     {
         if (muzzleFlashPrefab)
         {
@@ -80,6 +80,8 @@ public class SimpleShoot : MonoBehaviour
             {
                 target.TakeDamage(damage);
             }*/
+
+            CasingRelease();
         }
         
         
