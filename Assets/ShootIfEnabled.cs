@@ -9,7 +9,7 @@ public class ShootIfEnabled : MonoBehaviour
     private float lastShoot = 0;
     public void TryToShoot()
     {
-        if (gameObject.activeInHierarchy && Time.time - lastShoot > 1)
+        if (gameObject.activeInHierarchy && Time.time - lastShoot > 0.7f)
         {
             lastShoot = Time.time;
             gun.GetComponent<SimpleShoot>().ShootBullet();
