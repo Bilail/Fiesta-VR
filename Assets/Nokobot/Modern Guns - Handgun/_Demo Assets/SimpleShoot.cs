@@ -88,9 +88,6 @@ public class SimpleShoot : MonoBehaviour
 
             CasingRelease();
         }
-        
-        
-
     }
 
     //This function creates a casing at the ejection slot
