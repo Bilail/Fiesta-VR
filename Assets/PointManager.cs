@@ -27,7 +27,7 @@ public class PointManager : MonoBehaviour
     public void UpdateScore()
     {
         Score = Score + 1;
-        ScoreText.text = Score.ToString();
+        ScoreText.text = Score.ToString() + " PTS";
     }
 
     public void ReStart()
@@ -37,18 +37,18 @@ public class PointManager : MonoBehaviour
         {
             pins[i].transform.rotation = Quaternion.Euler(new Vector3(0, 90, -90));
         }
-        pins[0].transform.position = new Vector3(1.798f, -0.855f, -7.529f);
-        pins[1].transform.position = new Vector3(1.235f, -0.855f, -6.837f);
-        pins[2].transform.position = new Vector3(1.237f, -0.855f, -7.533f);
-        pins[3].transform.position = new Vector3(0.691f, -0.855f, -7.532f);
-        pins[4].transform.position = new Vector3(2.08f, -0.855f, -7.154f);
-        pins[5].transform.position = new Vector3(1.541f, -0.855f, -6.47f);
-        pins[6].transform.position = new Vector3(0.947f, -0.855f, -7.159f);
-        pins[7].transform.position = new Vector3(1.781f, -0.855f, -6.828f);
-        pins[8].transform.position = new Vector3(1.541f, -0.855f, -7.137f);
-        pins[9].transform.position = new Vector3(2.308f, -0.855f, -7.529f);
+        pins[0].transform.position = new Vector3(-0.51f, 0f, 0f);
+        pins[1].transform.position = new Vector3(-1.073f, 0f, 0.6919f);
+        pins[2].transform.position = new Vector3(-1.071f, 0f, -0.004f);
+        pins[3].transform.position = new Vector3(-1.617f, 0f, -0.003f);
+        pins[4].transform.position = new Vector3(-0.2280f, 0f, 0.375f);
+        pins[5].transform.position = new Vector3(-0.763f, -0.069f, -2.863f);
+        pins[6].transform.position = new Vector3(-1.361f, 0f, 0.3699f);
+        pins[7].transform.position = new Vector3(-0.5270f, 0f, 0.7009f);
+        pins[8].transform.position = new Vector3(-0.7670f, 0f, 0.3919f);
+        pins[9].transform.position = new Vector3(0f, 0f, 0f);
         Score = 0;
-        ScoreText.text = Score.ToString();
+        ScoreText.text = Score.ToString() + " PTS";
 
     }
 }

@@ -23,10 +23,10 @@ public class isFelt : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(gameObject.transform.position);
+        Debug.Log(gameObject.transform.rotation);
         rotateX = gameObject.transform.rotation.x;
         rotateZ = gameObject.transform.rotation.z;
-        if (rotateX >= -0.060 || rotateX >= 0.060 || rotateZ >= -0.060 || rotateZ >= 0.060)
+        if (rotateX >= 0.6 || rotateX <= -0.6 || rotateZ >= 0.6 || rotateZ <= -0.6)
         {
 
             if (tombe == false)
