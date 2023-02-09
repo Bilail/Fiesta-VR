@@ -41,6 +41,10 @@ public class SimpleShoot : MonoBehaviour
         }
     }
 
+    public void ShootBullet()
+    {
+        gunAnimator.SetTrigger("Fire");
+    }
 
     //This function creates the bullet behavior
     public void Shoot()

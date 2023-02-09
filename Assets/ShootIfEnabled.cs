@@ -5,11 +5,16 @@ using UnityEngine;
 public class ShootIfEnabled : MonoBehaviour
 {
     public GameObject gun;
-
+    public AudioSource shootSound;
+    private float lastShoot = 0;
     public void TryToShoot()
     {
-        if (gameObject.activeInHierarchy)
-            gun.GetComponent<SimpleShoot>().Shoot();
+        if (gameObject.activeInHierarchy && Time.time - lastShoot > 1)
+        {
+            lastShoot = Time.time;
+            gun.GetComponent<SimpleShoot>().ShootBullet();
+            shootSound.Play();
+        }
     }
 
     // Start is called before the first frame update
