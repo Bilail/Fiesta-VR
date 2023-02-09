@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+
+	
+
     public bool isTargetPractice = false;
     public float health = 10f;
     public float defaultHealth = 100f;

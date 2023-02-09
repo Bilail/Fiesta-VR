@@ -21,6 +21,7 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
+    public AudioSource sound; 
 
     void Start()
     {
@@ -71,15 +72,12 @@ public class SimpleShoot : MonoBehaviour
                 hit.rigidbody.AddForce(-hit.normal * shotPower);
             }*/
             //supprimer l'objet touché
-            if (hit.transform.gameObject.tag == "Target")
-            {
-                Destroy(hit.transform.gameObject);
-            }
-            /*Target target = hit.transform.GetComponent<Target>();
+            
+            Target target = hit.transform.GetComponent<Target>();
             if(target != null)
             {
                 target.TakeDamage(damage);
-            }*/
+            }
 
             CasingRelease();
         }
