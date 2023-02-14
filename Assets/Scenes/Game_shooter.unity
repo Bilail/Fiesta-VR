@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1178,10 +1178,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 0}
-  animator: {fileID: 0}
-  gameManager: {fileID: 0}
+  animator: {fileID: 850389357}
+  gameManager: {fileID: 850389356}
   score: 10
-  prefabExplosion: {fileID: 0}
+  prefabExplosion: {fileID: 1348631928614724, guid: 250e86a7819757142b6510e936ec4abf, type: 3}
 --- !u!1 &561909897 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 921090566749770278, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
@@ -1459,6 +1459,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &850389356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9115896898395156212, guid: 5fd4c94404c083c429d3b201a4ce36bb, type: 3}
+  m_PrefabInstance: {fileID: 635867425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd32a4314f0ca564580b3f27eae5c22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &850389357 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2693720703837814466, guid: 5fd4c94404c083c429d3b201a4ce36bb, type: 3}
+  m_PrefabInstance: {fileID: 635867425}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &866926380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,10 +1967,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 0}
-  animator: {fileID: 0}
-  gameManager: {fileID: 0}
+  animator: {fileID: 850389357}
+  gameManager: {fileID: 850389356}
   score: 50
-  prefabExplosion: {fileID: 0}
+  prefabExplosion: {fileID: 1348631928614724, guid: 250e86a7819757142b6510e936ec4abf, type: 3}
 --- !u!4 &1052257502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8565972283275330997, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
@@ -2738,8 +2754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 0}
-  animator: {fileID: 0}
-  gameManager: {fileID: 0}
+  animator: {fileID: 850389357}
+  gameManager: {fileID: 850389356}
   score: 100
   prefabExplosion: {fileID: 1348631928614724, guid: 250e86a7819757142b6510e936ec4abf, type: 3}
 --- !u!1 &1517993673 stripped
@@ -3066,7 +3082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: ejectPower
-      value: 500
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
+      propertyPath: destroyTimer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2836209850353687548, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: m_IsKinematic
