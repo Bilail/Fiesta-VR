@@ -28,8 +28,10 @@ public class GameManager : MonoBehaviour
 
         if(score <= 0)
         {
+            animator.ResetTrigger("reset");
             animator.SetTrigger("dropDead");
             scoreUI.enabled = false;
+            Invoke("ResetGame", 5);
         }
         else if (score < MAX_LIFE / 5)
             scoreUI.color = verybadlyHurt;
@@ -37,7 +39,6 @@ public class GameManager : MonoBehaviour
             scoreUI.color = badlyHurt;
         else if (score < MAX_LIFE / 2)
             scoreUI.color = hurt;
-
     }
 
     public void UpdateScore(int increment)
@@ -48,5 +49,14 @@ public class GameManager : MonoBehaviour
     public void ResetScore()
     {
         score = MAX_LIFE;
+    }
+
+    public void ResetGame()
+    {
+        animator.ResetTrigger("dropDead");
+        ResetScore();
+        scoreUI.color = Color.white;
+        scoreUI.enabled = true;
+        animator.SetTrigger("reset");
     }
 }

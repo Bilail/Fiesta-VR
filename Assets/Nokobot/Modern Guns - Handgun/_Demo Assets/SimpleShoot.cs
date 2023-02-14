@@ -71,7 +71,6 @@ public class SimpleShoot : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(barrelLocation.position, barrelLocation.forward, out hit))
         {
-            Debug.Log(hit.transform.name);
             /*if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * shotPower);
@@ -83,7 +82,6 @@ public class SimpleShoot : MonoBehaviour
             {
                 target.TakeDamage(damage);
             }
-
             CasingRelease();
         }
     }
