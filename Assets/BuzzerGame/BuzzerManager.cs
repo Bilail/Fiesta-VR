@@ -94,6 +94,7 @@ public class BuzzerManager : MonoBehaviour
         game_started_at = Time.time + 1;
         elapsed_time = 0;
         score = 0;
+        timer_text.color = new Color(0.95f, 0.99f, 0);
         score_text.text = score.ToString() + " pts";
         timer_text.text = game_duration + " sec";
         if (lighted_buzzer != -1)
