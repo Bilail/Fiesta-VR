@@ -1306,7 +1306,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &348168963
 BoxCollider:
@@ -1585,7 +1584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &388433925
 BoxCollider:
@@ -3362,7 +3360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &688247914
 BoxCollider:
@@ -3501,7 +3498,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &747106836
 BoxCollider:
@@ -5488,7 +5484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &1242967754
 BoxCollider:
@@ -7134,7 +7129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &1620137715
 BoxCollider:
@@ -7178,7 +7172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &1623725241
 BoxCollider:
@@ -7317,7 +7310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &1660460867
 BoxCollider:
@@ -7505,8 +7497,8 @@ MonoBehaviour:
   - {fileID: 388433923}
   - {fileID: 8164078558959822710}
   - {fileID: 8164078558082994669}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8164078559294804284}
+  - {fileID: 8164078559300621158}
   ball: {fileID: 1086685859}
 --- !u!4 &1682238377
 Transform:
@@ -9030,7 +9022,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &1873507651
 BoxCollider:
@@ -10485,7 +10476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b4081cdbbaaa4ac4581ee34078b3db86, type: 3}
-  audioSource: {fileID: 0}
   mg: {fileID: 1682238376}
 --- !u!65 &2100635690
 BoxCollider:
